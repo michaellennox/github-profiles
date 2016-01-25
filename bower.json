@@ -1,0 +1,24 @@
+{
+  "name": "github-profiles",
+  "homepage": "https://github.com/michaellennox/github-profiles",
+  "authors": [
+    "michaellennox <michaelctlennox@gmail.com>"
+  ],
+  "description": "Github Profiles implemented in Angular",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.0",
+    "bootstrap": "~3.3.6",
+    "angular": "~1.4.9",
+    "angular-resource": "~1.4.9"
+  }
+}
