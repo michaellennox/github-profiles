@@ -24,10 +24,11 @@
         <input type="text" placeholder="Github Username" ng-model="searchCtrl.searchTerm" ng-change="searchValueForm.$valid &amp;&amp; searchCtrl.doSearch()" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }" required>
         <button class="btn btn-primary" ng-click="searchCtrl.doSearch()">Search</button>
       </form>
+      <h3 ng-show="searchCtrl.searchTerm">Last Search for {{searchCtrl.searchTerm}}</h3>
 
       <br>
       <ul class="list-group text-center">
-        <li ng-repeat="user in searchCtrl.searchResult.items" class="list-group-item row">
+        <li ng-show="searchCtrl.searchTerm" ng-repeat="user in searchCtrl.searchResult.items" class="list-group-item row">
           <img ng-src="{{user.avatar_url}}&amp;s=50" class="pull-left">
           <a ng-href="{{user.html_url}}" class="pull-right">{{user.login}}</a>
         </li>
