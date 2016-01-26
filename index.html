@@ -11,14 +11,14 @@
   <script src="js/gitUserSearchController.js"></script>
 </head>
 
-<body ng-controller="GitUserSearchController as searchCtrl">
+<body>
   <div class="container">
     <head class="page-header row">
       <h1 class="text-center">Github Profiles <small>by Michael</small></h1>
     </head>
 
     <br>
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-3" ng-controller="GitUserSearchController as searchCtrl">
       <form class="form-horizontal text-center row">
         <input type="text" placeholder="Github Username" ng-model="searchCtrl.searchTerm">
         <button class="btn btn-primary" ng-click="searchCtrl.doSearch()">Search</button>

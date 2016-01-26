@@ -25,10 +25,21 @@ describe('GitUserSearchController', function() {
         "html_url": "https://github.com/stephenlloyd"
       }
     ];
+    var httpBackend;
+
+    beforeEach(inject(function($httpBackend) {
+      httpBackend = $httpBackend;
+      httpBackend
+        .when("GET", "https://api.github.com/search/users?q=hello")
+        .respond(
+          { items: items }
+        );
+    }));
 
     it('displays serach results', function() {
       ctrl.searchTerm = 'hello';
       ctrl.doSearch();
+      httpBackend.flush();
       expect(ctrl.searchResult.items).toEqual(items);
     });
   });
