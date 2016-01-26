@@ -1,11 +1,23 @@
 describe('factory: Search', function() {
+  var search;
+  var httpBackend;
+
   beforeEach(module('GitUserSearch'));
 
-  var search;
-
-  beforeEach(inject(function(Search) {
+  beforeEach(inject(function(Search, $httpBackend) {
     search = Search;
+    httpBackend = $httpBackend;
+    httpBackend
+      .expectGET("https://api.github.com/search/users?access_token=973539a4af62ea4ac44efa8c78c510dc01632d75&q=hello")
+      .respond(
+        { items: items }
+      );
   }));
+
+  afterEach(function() {
+    httpBackend.verifyNoOutstandingExpectation();
+    httpBackend.verifyNoOutstandingRequest();
+  });
 
   var items = [
     {
@@ -19,22 +31,6 @@ describe('factory: Search', function() {
       "html_url": "https://github.com/stephenlloyd"
     }
   ];
-
-  var httpBackend;
-
-  beforeEach(inject(function($httpBackend) {
-    httpBackend = $httpBackend;
-    httpBackend
-      .expectGET("https://api.github.com/search/users?access_token=973539a4af62ea4ac44efa8c78c510dc01632d75&q=hello")
-      .respond(
-        { items: items }
-      );
-  }));
-
-  afterEach(function() {
-    httpBackend.verifyNoOutstandingExpectation();
-    httpBackend.verifyNoOutstandingRequest();
-  });
 
   it('returns search results', function() {
     search.query('hello')
