@@ -3,9 +3,7 @@ angular.module('searchFactoryMock', ['GitUserSearch'])
     $provide.factory('Search', function($q) {
       return {
         query: function(searchTerm) {
-          return $q.when({
-            data: { items: 'cat' }
-          });
+          return $q.when({ data: {items: 'cat'} });
         }
       };
     });
