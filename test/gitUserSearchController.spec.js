@@ -41,7 +41,7 @@ describe('GitUserSearchController', function() {
       httpBackend.verifyNoOutstandingRequest();
     });
 
-    it('displays serach results', function() {
+    it('displays search results', function() {
       ctrl.searchTerm = 'hello';
       ctrl.doSearch();
       httpBackend.flush();
