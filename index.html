@@ -29,7 +29,7 @@
       <br>
       <ul class="list-group text-center">
         <li ng-show="searchCtrl.searchTerm" ng-repeat="user in searchCtrl.searchResult.items" class="list-group-item row">
-          <img ng-src="{{user.avatar_url}}&amp;s=50" class="pull-left">
+          <img ng-src="{{user.avatar_url}}&amp;s=50" class="pull-left" width="50" height="50">
           <a ng-href="{{user.html_url}}" class="pull-right">{{user.login}}</a>
         </li>
       </ul>
