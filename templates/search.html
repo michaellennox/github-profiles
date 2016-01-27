@@ -1,0 +1,30 @@
+<div class="container" ng-controller="GitUserSearchController as searchCtrl">
+  <div class="row">
+    <form class="form-inline col-md-6 col-md-offset-3" name="searchForm">
+      <div class="input-group col-md-12 input-group-lg">
+        <input class = "form-control text-center"
+               placeholder="Github Username"
+               type="text"
+               ng-model="searchCtrl.searchTerm"
+               ng-change="searchForm.$valid &amp;&amp; searchCtrl.doSearch()"
+               ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }"
+               required>
+        <span class="input-group-btn">
+          <button class="btn btn-success" ng-click="searchCtrl.doSearch()"><i class="glyphicon glyphicon-search"></i></button>
+        </span>
+     </div>
+    </form>
+  </div>
+  <div class="row">
+    <h2 class="text-center">Results For: {{searchCtrl.searchTerm}}</h2>
+    <ul class="list-group">
+      <li class="user list-group-item" ng-repeat="user in searchCtrl.searchResult.items" ng-click="searchCtrl.expandUser(user)">
+        <a class="user-login text-center" ng-href="{{user.html_url}}">{{user.login}}</a>
+        <img class="user-avatar" ng-src="{{user.avatar_url}}&amp;s=75" >
+        {{user.repos_url}}
+      </li>
+    </ul>
+  </div>
+
+  <a href='/#/profiles/michaellenox'>mememee</a>
+</div>

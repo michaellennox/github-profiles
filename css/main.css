@@ -1,0 +1,22 @@
+header {
+  margin-bottom: 25px;
+}
+
+.user {
+  float: left;
+  width: 20%;
+}
+
+.user-login {
+  font-weight: bold;
+  font-size: 15px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.user-avatar {
+  display: block;
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+}
