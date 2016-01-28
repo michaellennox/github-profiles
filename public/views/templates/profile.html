@@ -1,13 +1,13 @@
-<div class="container" ng-controller="GitUserProfileController as profileCtrl">
-  <div class="jumbotron">
+<main class="container" ng-controller="GitUserProfileController as profileCtrl">
+  <section class="jumbotron">
     <div class="container">
       <div class="col-md-4 text-center">
         <h2>{{profileCtrl.user.login}}</h2>
         <img class="profile-avatar img-circle" ng-src="{{profileCtrl.user.avatar_url}}&amp;s=150" >
       </div>
     </div>
-  </div>
-  <div class="col-md-8 col-md-offset-2">
+  </section>
+  <section class="col-md-8 col-md-offset-2">
     <ul class="list-group">
       <li class="repos list-group-item" ng-repeat="repo in profileCtrl.repos">
         <p>
@@ -33,5 +33,5 @@
         </p>
       </li>
     </ul>
-  </div>
-</div>
+  </section>
+</main>

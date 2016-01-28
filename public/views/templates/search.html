@@ -1,5 +1,5 @@
-<div class="container" ng-controller="GitUserSearchController as searchCtrl">
-  <div class="row">
+<main class="container" ng-controller="GitUserSearchController as searchCtrl">
+  <section class="row">
     <form class="form-inline col-md-6 col-md-offset-3" name="searchForm" ng-submit="searchCtrl.doSearch()">
       <div class="input-group col-md-12 input-group-lg">
         <input class = "form-control text-center" placeholder="Github Username"
@@ -9,8 +9,8 @@
         </span>
      </div>
     </form>
-  </div>
-  <div class="row">
+  </section>
+  <section class="row">
     <h2 class="text-center">Results For: {{searchCtrl.lastSearchTerm}}</h2>
     <ul class="list-group">
       <li class="user list-group-item" ng-repeat="user in searchCtrl.searchResult.items">
@@ -18,5 +18,5 @@
         <img class="user-avatar" ng-src="{{user.avatar_url}}&amp;s=75" >
       </li>
     </ul>
-  </div>
-</div>
+  </section>
+</main>
