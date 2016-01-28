@@ -14,7 +14,7 @@ describe('factory: Search', function() {
   ];
 
   beforeEach(module('GitUserSearch'));
-  
+
   beforeEach(inject(function(Search) {
     search = Search;
   }));
@@ -22,7 +22,7 @@ describe('factory: Search', function() {
   beforeEach(inject(function($httpBackend) {
       httpBackend = $httpBackend;
       httpBackend
-        .when("GET", "https://api.github.com/search/users?q=hello")
+        .when("GET", "https://api.github.com/search/users?access_token=973539a4af62ea4ac44efa8c78c510dc01632d75&q=hello")
         .respond(
           { items: items }
         );

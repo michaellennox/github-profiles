@@ -26,4 +26,13 @@ describe('Github Profile finder', function() {
     var profiles = element.all(by.repeater('user in searchCtrl.searchResult.items'));
     expect(profiles.get(0).getText()).toEqual('jamiebrown201');
   });
+
+  it('records the last search', function() {
+    browser.get('http://localhost:8080');
+    searchBox.sendKeys('a person');
+    searchButton.click();
+
+    var lastSearch = element(by.binding('searchCtrl.lastSearchTerm'));
+    expect(lastSearch.getText()).toEqual('Results For: a person');
+  });
 });

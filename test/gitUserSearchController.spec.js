@@ -18,6 +18,7 @@ describe('GitUserSearchController', function() {
   it('initialises with an empty search result and term', function() {
     expect(ctrl.searchResult).toBeUndefined();
     expect(ctrl.searchTerm).toBeUndefined();
+    expect(ctrl.lastSearchTerm).toBeUndefined();
   });
 
   describe('when searching for a user', function() {
@@ -26,6 +27,13 @@ describe('GitUserSearchController', function() {
       ctrl.doSearch();
       scope.$apply();
       expect(ctrl.searchResult.items).toEqual('cat');
+    });
+
+    it('saves the last search term', function() {
+      ctrl.searchTerm = 'Green';
+      ctrl.doSearch();
+      scope.$apply();
+      expect(ctrl.lastSearchTerm).toEqual('Green');
     });
   });
 });

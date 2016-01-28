@@ -16,7 +16,7 @@
     </form>
   </div>
   <div class="row">
-    <h2 class="text-center">Results For: {{searchCtrl.searchTerm}}</h2>
+    <h2 class="text-center">Results For: {{searchCtrl.lastSearchTerm}}</h2>
     <ul class="list-group">
       <li class="user list-group-item" ng-repeat="user in searchCtrl.searchResult.items" ng-click="searchCtrl.expandUser(user)">
         <a class="user-login text-center" ng-href="{{user.html_url}}">{{user.login}}</a>
