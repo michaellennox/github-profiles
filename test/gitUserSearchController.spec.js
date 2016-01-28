@@ -32,7 +32,7 @@ describe('GitUserSearchController', function() {
     it('saves the last search term', function() {
       ctrl.searchTerm = 'Green';
       ctrl.doSearch();
-      scope.$apply();
+      scope.$digest();
       expect(ctrl.lastSearchTerm).toEqual('Green');
     });
   });

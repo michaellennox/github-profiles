@@ -1,8 +1,8 @@
 {
   "name": "gits",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "a github profile searcher in Angular",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "start-dev": "nodemon server.js",
@@ -12,14 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamiebrown201/githubprofiles.git"
+    "url": "git+https://github.com/michaellennox/github-profiles.git"
   },
-  "author": "",
+  "author": "michaellennox",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jamiebrown201/githubprofiles/issues"
-  },
-  "homepage": "https://github.com/jamiebrown201/githubprofiles#readme",
   "devDependencies": {
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.19",
