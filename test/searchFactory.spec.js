@@ -1,17 +1,6 @@
 describe('factory: Search', function() {
   var search;
-  var items = [
-    {
-      "login": "tansaku",
-      "avatar_url": "https://avatars.githubusercontent.com/u/30216?v=3",
-      "html_url": "https://github.com/tansaku"
-    },
-    {
-      "login": "stephenlloyd",
-      "avatar_url": "https://avatars.githubusercontent.com/u/196474?v=3",
-      "html_url": "https://github.com/stephenlloyd"
-    }
-  ];
+  var access_token = '?access_token=973539a4af62ea4ac44efa8c78c510dc01632d75';
 
   beforeEach(module('GitUserSearch'));
 
@@ -22,9 +11,16 @@ describe('factory: Search', function() {
   beforeEach(inject(function($httpBackend) {
       httpBackend = $httpBackend;
       httpBackend
-        .when("GET", "https://api.github.com/search/users?access_token=973539a4af62ea4ac44efa8c78c510dc01632d75&q=hello")
+        .when("GET", "https://api.github.com/search/users" + access_token + "&q=hello")
         .respond(
-          { items: items }
+          { items: 'user search results' }
+        );
+      httpBackend
+        .when("GET",
+        "https://api.github.com/users/tansaku" + access_token
+        )
+        .respond(
+          { item: 'single user data' }
         );
   }));
 
@@ -33,15 +29,23 @@ describe('factory: Search', function() {
     httpBackend.verifyNoOutstandingRequest();
   });
 
-  it('responds to query', function() {
-    expect(search.query).toBeDefined();
+  describe('#query', function() {
+    it('returns search results', function() {
+      search.query('hello')
+        .then(function(response) {
+          expect(response.data.items).toEqual('user search results');
+        });
+      httpBackend.flush();
+    });
   });
 
-  it('returns search results', function() {
-    search.query('hello')
-      .then(function(response) {
-        expect(response.data.items).toEqual(items);
-      });
-    httpBackend.flush();
+  describe('#getUser', function() {
+    it('returns a user data', function() {
+      search.getUser('tansaku')
+        .then(function(response) {
+          expect(response.data.item).toEqual('single user data');
+        });
+      httpBackend.flush();
+    });
   });
 });

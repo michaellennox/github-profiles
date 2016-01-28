@@ -1,1 +1,4 @@
-Test data for routing
+<div class="container" ng-controller="GitUserProfileController as profileCtrl">
+  <img class="profile-avatar" ng-src="{{profileCtrl.user.avatar_url}}&amp;s=450" >
+  <p>{{profileCtrl.user.login}}</p>
+</div>

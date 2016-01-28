@@ -1,11 +1,11 @@
 exports.config = {
   seleniumAddress: 'http://localhost:4444/wd/hub',
-  specs: ['githubProfileFeature.js'],
-  multiCapabilities: [{
-    browserName: 'firefox'
-  }, {
-    browserName: 'chrome'
-  }],
+  specs: ['githubProfileFeature.js', 'githubSearchFeature.js'],
+  // multiCapabilities: [{
+  //   browserName: 'firefox'
+  // }, {
+  //   browserName: 'chrome'
+  // }],
   mocks: {
     default: [],
     dir: 'mocks'

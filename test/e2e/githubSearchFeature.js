@@ -1,6 +1,6 @@
 var mock = require('protractor-http-mock');
 
-describe('Github Profile finder', function() {
+describe('Github Searcher', function() {
   var searchBox = element(by.model('searchCtrl.searchTerm'));
   var searchButton = element(by.className('btn'));
 
