@@ -1,11 +1,37 @@
 <div class="container" ng-controller="GitUserProfileController as profileCtrl">
-  <h2>{{profileCtrl.user.login}}</h2>
-  <img class="profile-avatar" ng-src="{{profileCtrl.user.avatar_url}}&amp;s=150" >
-  <ul class="list-group">
-    <li class="repos list-group-item" ng-repeat="repo in profileCtrl.repos">
-      <h3>{{repo.name}}</h3>
-      <p>Owned By: {{repo.owner.login}}</p>
-      <p>Description: {{repo.description}}</p>
-    </li>
-  </ul>
+  <div class="jumbotron">
+    <div class="container">
+      <div class="col-md-4 text-center">
+        <h2>{{profileCtrl.user.login}}</h2>
+        <img class="profile-avatar img-circle" ng-src="{{profileCtrl.user.avatar_url}}&amp;s=150" >
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8 col-md-offset-2">
+    <ul class="list-group">
+      <li class="repos list-group-item" ng-repeat="repo in profileCtrl.repos">
+        <p>
+          <strong>{{repo.name}}</strong>
+          <span class="pull-right">
+            <i class="glyphicon glyphicon-random"></i>
+            {{repo.forks_count}}
+          </span>
+        </p>
+        <p>
+          Owned By: {{repo.owner.login}}
+          <span class="pull-right">
+            <i class="glyphicon glyphicon-star-empty"></i>
+            {{repo.stargazers_count}}
+          </span>
+        </p>
+        <p>
+          Description: {{repo.description}}
+          <span class="pull-right">
+            <i class="glyphicon glyphicon-eye-open"></i>
+            {{repo.watchers_count}}
+          </span>
+        </p>
+      </li>
+    </ul>
+  </div>
 </div>
