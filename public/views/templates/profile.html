@@ -1,4 +1,11 @@
 <div class="container" ng-controller="GitUserProfileController as profileCtrl">
-  <img class="profile-avatar" ng-src="{{profileCtrl.user.avatar_url}}&amp;s=450" >
-  <p>{{profileCtrl.user.login}}</p>
+  <h2>{{profileCtrl.user.login}}</h2>
+  <img class="profile-avatar" ng-src="{{profileCtrl.user.avatar_url}}&amp;s=150" >
+  <ul class="list-group">
+    <li class="repos list-group-item" ng-repeat="repo in profileCtrl.repos">
+      <h3>{{repo.name}}</h3>
+      <p>Owned By: {{repo.owner.login}}</p>
+      <p>Description: {{repo.description}}</p>
+    </li>
+  </ul>
 </div>

@@ -14,7 +14,15 @@ describe('Github Profile Info', function() {
     var username = element(by.binding('profileCtrl.user.login')).getText();
 
     expect(browser.getCurrentUrl()).toContain('/profiles/michaellennox');
-    expect(avatarUrl).toEqual('https://avatars.githubusercontent.com/u/14293463?v=3&s=450');
+    expect(avatarUrl).toEqual('https://avatars.githubusercontent.com/u/14293463?v=3&s=150');
     expect(username).toEqual('michaellennox');
+  });
+
+  it('the page should display repository details', function() {
+    profile.click();
+
+    var repos = element.all(by.repeater('repo in profileCtrl.repos'));
+    expect(repos.get(0).getText()).toContain('airport-javascript');
+    expect(repos.get(0).getText()).toContain('Owned By: michaellennox');
   });
 });
