@@ -8,6 +8,10 @@ githubUserSearch.controller('GitUserProfileController', ['Search', '$routeParams
       .then(function(response) {
         self.user = response.data;
       });
+    Search.getRepos(self.username)
+      .then(function(response) {
+        self.repos = response.data;
+      });
   };
 
   self.init();
