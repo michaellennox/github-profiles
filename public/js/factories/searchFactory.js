@@ -21,6 +21,15 @@ githubUserSearch.factory('Search', ['$http', function($http) {
           'access_token': access_token
         }
       });
+    },
+    getRepos: function(username) {
+      return $http({
+        url: apiUrl + '/' + username + '/repos',
+        method: 'GET',
+        params: {
+          'access_token': access_token
+        }
+      });
     }
   };
 }]);

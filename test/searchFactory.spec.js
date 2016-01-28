@@ -11,16 +11,28 @@ describe('factory: Search', function() {
   beforeEach(inject(function($httpBackend) {
       httpBackend = $httpBackend;
       httpBackend
-        .when("GET", "https://api.github.com/search/users" + access_token + "&q=hello")
+        .when(
+          "GET",
+          "https://api.github.com/search/users" + access_token + "&q=hello"
+        )
         .respond(
           { items: 'user search results' }
         );
       httpBackend
-        .when("GET",
-        "https://api.github.com/users/tansaku" + access_token
+        .when(
+          "GET",
+          "https://api.github.com/users/tansaku" + access_token
         )
         .respond(
           { item: 'single user data' }
+        );
+      httpBackend
+        .when(
+          "GET",
+          "https://api.github.com/users/tansaku/repos" + access_token
+        )
+        .respond(
+          { repo: 'a random repo' }
         );
   }));
 
@@ -44,6 +56,16 @@ describe('factory: Search', function() {
       search.getUser('tansaku')
         .then(function(response) {
           expect(response.data.item).toEqual('single user data');
+        });
+      httpBackend.flush();
+    });
+  });
+
+  describe('#getRepos', function() {
+    it('returns a user repo data', function() {
+      search.getRepos('tansaku')
+        .then(function(response) {
+          expect(response.data.repo).toEqual('a random repo');
         });
       httpBackend.flush();
     });
