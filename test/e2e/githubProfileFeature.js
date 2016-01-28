@@ -5,21 +5,7 @@ describe('Github Profile finder', function() {
   var searchButton = element(by.className('btn'));
 
   beforeEach(function() {
-    mock([{
-      request: {
-        path: 'https://api.github.com/search/users?q=jamiebrown201',
-        method: 'GET'
-      },
-      response: {
-        data: {
-          items: {
-            login: "jamiebrown201",
-            avatar_url: "https://avatars.githubusercontent.com/u/196474?v=3",
-            html_url: "https://github.com/jamiebrown201"
-          }
-        }
-      }
-    }]);
+    mock(['gitSearchMock.js']);
   });
 
   afterEach(function(){

@@ -6,6 +6,10 @@ exports.config = {
   }, {
     browserName: 'chrome'
   }],
+  mocks: {
+    default: [],
+    dir: 'mocks'
+  },
   onPrepare: function(){
     require('protractor-http-mock').config = {
       rootDirectory: __dirname,
